@@ -11,7 +11,7 @@ A REST API for viewing information about fictional characters from games and pop
 - Partial, case-insensitive search by name
 - Filter by universe
 
-Generate a starter project at [start.spring.io](https://start.spring.io) with: **Spring Web, Spring Data JPA, Validation, PostgreSQL Driver**.
+View the project at [csc340-crud-api-n638.onrender.com](https://csc340-crud-api-n638.onrender.com/api/characters)
 
 ## Data Model
 
