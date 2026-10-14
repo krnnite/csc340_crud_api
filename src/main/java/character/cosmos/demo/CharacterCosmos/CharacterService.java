@@ -37,16 +37,16 @@ public class CharacterService {
         return repository.findAll();
     }
 
-    public FictionCharacter findById(Long characterId) {
-        return repository.findById(characterId).orElseThrow(() -> new FictionCharacterNotFoundException(characterId));
+    public FictionCharacter findById(Long id) {
+        return repository.findById(id).orElseThrow(() -> new FictionCharacterNotFoundException(id));
     }
 
     public FictionCharacter create(FictionCharacter fictionCharacter) {
         return repository.save(fictionCharacter);
     }
 
-    public FictionCharacter update(Long characterId, FictionCharacter updated) {
-        FictionCharacter existing = findById(characterId);
+    public FictionCharacter update(Long id, FictionCharacter updated) {
+        FictionCharacter existing = findById(id);
         existing.setName(updated.getName());
         existing.setUniverse(updated.getUniverse());
         existing.setDescription(updated.getDescription());
@@ -54,8 +54,8 @@ public class CharacterService {
         return repository.save(existing);
     }
 
-    public void delete(Long characterId) {
-        findById(characterId); // throws 404 if missing
-        repository.deleteById(characterId);
+    public void delete(Long id) {
+        findById(id); // throws 404 if missing
+        repository.deleteById(id);
     }
 }

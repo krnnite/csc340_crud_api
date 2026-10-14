@@ -11,7 +11,7 @@ import java.time.LocalDate;
 public class FictionCharacter {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long characterId;
+    private Long id;
     
     @NotBlank
     private String name;
@@ -29,7 +29,7 @@ public class FictionCharacter {
     }
 
     public Long getId() {
-        return characterId;
+        return id;
     }
 
     public String getName() {

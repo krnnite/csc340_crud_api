@@ -24,8 +24,8 @@ public class CharacterController {
     }
 
     @GetMapping("/{id}")
-    public FictionCharacter get(@PathVariable Long characterId) {
-        return service.findById(characterId);
+    public FictionCharacter get(@PathVariable Long id) {
+        return service.findById(id);
     }
 
     @PostMapping
@@ -41,7 +41,7 @@ public class CharacterController {
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void delete(@PathVariable Long characterId) {
-        service.delete(characterId);
+    public void delete(@PathVariable Long id) {
+        service.delete(id);
     }
 }
