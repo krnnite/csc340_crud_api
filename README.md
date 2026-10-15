@@ -11,7 +11,7 @@ A REST API for viewing information about fictional characters from games and pop
 - Partial, case-insensitive search by name
 - Filter by universe
 
-View the project at [csc340-crud-api-n638.onrender.com](https://csc340-crud-api-n638.onrender.com/api/characters)
+View the project at [csc340-crud-api-n638.onrender.com/api/characters](https://csc340-crud-api-n638.onrender.com/api/characters), view start note at [csc340-crud-api-n638.onrender.com](https://csc340-crud-api-n638.onrender.com)
 
 ## Data Model
 
