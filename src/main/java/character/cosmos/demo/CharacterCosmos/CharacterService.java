@@ -37,6 +37,14 @@ public class CharacterService {
         return repository.findAll();
     }
 
+    public List<FictionCharacter> search(String name) {
+        boolean hasName = name != null && !name.isBlank();
+        if (hasName) {
+            return repository.findByNameContainingIgnoreCase(name.trim());
+        }
+        return repository.findAll();
+    }
+
     public FictionCharacter findById(Long id) {
         return repository.findById(id).orElseThrow(() -> new FictionCharacterNotFoundException(id));
     }
