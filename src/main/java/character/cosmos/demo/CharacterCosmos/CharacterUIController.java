@@ -38,7 +38,7 @@ public class CharacterUIController {
         return "details";
     }
 
-    @GetMapping("/character/new")
+    @GetMapping("/characters/new")
     public String newForm(Model model) {
         FictionCharacter character = new FictionCharacter();
         character.setDebutDate(LocalDate.now());
