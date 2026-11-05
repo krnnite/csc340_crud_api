@@ -25,6 +25,8 @@ public class FictionCharacter {
     @NotNull
     private LocalDate debutDate;
 
+    private String thumbnailUrl;
+
     public FictionCharacter() {
     }
 
@@ -62,5 +64,13 @@ public class FictionCharacter {
 
     public void setDebutDate(LocalDate debutDate) {
         this.debutDate = debutDate;
+    }
+
+    public String getThumbnailUrl() {
+        return thumbnailUrl;
+    }
+
+    public void setThumbnailUrl(String thumbnailUrl) {
+        this.thumbnailUrl = thumbnailUrl;
     }
 }
