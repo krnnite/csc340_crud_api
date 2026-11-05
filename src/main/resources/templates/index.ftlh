@@ -13,7 +13,7 @@
             <#list characters as character>
                 <article class="card">
                     <a href="/characters/${character.id?c}">
-                        <img src="" alt="${character.name}">
+                        <img src="/thumbnails/${(character.thumbnailUrl)!'character-placeholder.svg'}" alt="${character.name}" height="400" width="400">
                     </a>
                     <div class="card-body">
                         <h3><a href="/characters/${character.id?c}">${character.name}</a></h3>

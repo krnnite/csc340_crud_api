@@ -3,7 +3,7 @@
     <p><a href="/">Back to Characters</a></p>
 
     <div class="details">
-      <img class="hero" src="" alt="" width="400" height="400">
+      <img class="hero" src="/thumbnails/${(character.thumbnailUrl)!'character-placeholder.svg'}" alt="${character.name}" width="400" height="400">
       <div>
         <h1>${character.name}</h1>
         <dl>
