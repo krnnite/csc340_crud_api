@@ -13,7 +13,7 @@
         <header>
             <nav class="navbar navbar-expand-lg bg-body-tertiary">
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="#">
+                    <a class="navbar-brand" href="/">
                         <img src="img/flavicons/charactercosmos.png" alt="logo">
                         CharacterCosmos</a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -21,16 +21,12 @@
                     </button>
                     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                         <div class="navbar-nav">
-                            <a class="nav-link active" aria-current="page" href="index.html">Home</a>
-                            <a class="nav-link" href="details.html">Details</a>
-                            <a class="nav-link" href="about.html">About</a>
-                            <a class="nav-link" href="new-character-form.html">Add a Character</a>
+                            <a class="nav-link ${(active == 'home')?then('active', '')}" href="/">Home</a>
+                            <!-- <a class="nav-link" href="details.html">Details</a> -->
+                            <a class="nav-link ${(active == 'about')?then('active', '')}" href="/about">About</a>
+                            <a class="nav-link ${(active == 'new')?then('active', '')}" href="/characters/new">Add a Character</a>
                         </div>
                     </div>
-                    <form class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-                        <button class="btn btn-outline-success" type="submit">Search</button>
-                    </form>
                 </div>
             </nav>
         </header>

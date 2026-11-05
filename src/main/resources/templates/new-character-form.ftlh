@@ -24,7 +24,7 @@
         <div class="actions">
             <button type="submit">Save</button>
             <#if characterId??>
-            <a href="/chracters/${characterId?c}">Cancel</a>
+            <a href="/characters/${characterId?c}">Cancel</a>
             <#else>
                 <a href="/">Cancel</a>
             </#if>

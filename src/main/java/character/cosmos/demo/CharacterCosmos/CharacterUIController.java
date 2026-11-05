@@ -1,7 +1,6 @@
 package character.cosmos.demo.CharacterCosmos;
 
 import java.time.LocalDate;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,7 +9,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
-
 import jakarta.validation.Valid;
 
 
@@ -23,32 +21,31 @@ public class CharacterUIController {
     }
 
     @GetMapping({"/", "/characters"})
-    public String gallery(@RequestParam String name, Model model) {
-        model.addAttribute("characeter", service.search(name));
+    public String gallery(@RequestParam(required = false) String name, Model model) {
+        model.addAttribute("characters", service.search(name));
+        model.addAttribute("name", name == null ? "" : name);
         return "index";
     }
 
     @GetMapping("/characters/{id}")
-    public String details(@PathVariable Long id, Model model) {
-        try {
-            FictionCharacter character = service.findById(id);
-            model.addAttribute("character", character);
-            return "details";
-        } catch (RuntimeException exception) {
-            model.addAttribute("errorMessage",
-            exception.getMessage() == null ? "Character not found" : exception.getMessage());
-            return "error"; 
+    public String details(@PathVariable Long id, Model model) {    
+        FictionCharacter character = service.findById(id);
+        if (character == null) {
+            model.addAttribute("errorMessage", "Character not found for ID: " + id);
+            return "error";
         }
+        model.addAttribute("character", character);
+        return "details";
     }
 
-    @GetMapping("character/new")
+    @GetMapping("/character/new")
     public String newForm(Model model) {
         FictionCharacter character = new FictionCharacter();
         character.setDebutDate(LocalDate.now());
         model.addAttribute("character", character);
-        model.addAttribute("form title", "Add a new Character");
-        model.addAttribute("form action", "/characters");
-        return "character-form";
+        model.addAttribute("formTitle", "Add a new Character");
+        model.addAttribute("formAction", "/characters");
+        return "new-character-form";
     }
 
     @PostMapping("/characters")
