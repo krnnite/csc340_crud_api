@@ -19,6 +19,15 @@
         <div class="mt-4">
             <h5><strong>What does the website author look like?</strong></h5>
             <img src="/img/author.jpg">
-        </div>   
+        </div>  
+        <div class="mt-4">
+            <h5><strong>How does CharacterCosmos work?</strong></h5>
+            <h6>
+                The application is built using a MVC architecture, where Spring Boot manages the backend business logic and .ftlh templates handle 
+                server-side view. The front end captures user actions and sends standard HTTP requests to the server. The backend Controller then 
+                processes these requests through the service layer, executes the appropriate database operations, and 
+                redirects the client back to the updated view.
+            </h6>
+        </div> 
     </div>
 </@l.page>
