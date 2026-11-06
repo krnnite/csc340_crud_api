@@ -127,3 +127,19 @@ Content-Type: application/json
 | 204 | Deleted, no content |
 | 400 | Validation failed or malformed request |
 | 404 | Character with that id does not exist |
+
+## Running Locally
+
+1. Create a Neon project and gather your connection details.
+2. Set the `SPRING_DATASOURCE_URL` environment variable.
+   - Mac/Linux: `export SPRING_DATASOURCE_URL="jdbc:postgresql://<neon-host>/<db>?sslmode=require"`
+   - Windows: `set SPRING_DATASOURCE_URL=jdbc:postgresql://<neon-host>/<db>?sslmode=require`
+   - PowerShell: `$env:SPRING_DATASOURCE_URL="jdbc:postgresql://<neon-host>/<db>?sslmode=require"`
+3. Start the app:
+
+```bash
+./mvnw spring-boot:run        # Mac / Linux
+.\mvnw.cmd spring-boot:run    # Windows
+```
+
+4. Visit `http://localhost:8080/` for the MVC web interface
