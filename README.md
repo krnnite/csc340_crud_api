@@ -14,7 +14,7 @@ A REST API for viewing information about fictional characters from games and pop
 View the project at [csc340-crud-api-n638.onrender.com/api/characters](https://csc340-crud-api-n638.onrender.com/api/characters), view start note at [csc340-crud-api-n638.onrender.com](https://csc340-crud-api-n638.onrender.com)
 
 ## Architecture
-
+```
 Browser -- CharacterUIController -- FreeMarker templates (HTML)
 |
 JSON client -- CharacterController
@@ -24,9 +24,9 @@ CharacterService
 CharacterRepository (JPA)
 |
 FictionCharacter entity / Database
-
+```
 ### Project Structure
-
+```
 src/main/java/character/cosmos/demo/CharacterCosmos/
 	CharacterController.java
 	CharacterUIController.java
@@ -39,7 +39,7 @@ src/main/resources/
 	templates/                 FreeMarker views for the MVC interface
 	static/css/stylesheet.css  Web interface styles
 	static/thumbnails/         Uploaded pictures and placeholder image
-
+```
 ## MVC Web Interface
 
 Start the application and open `http://localhost:8080/` to use the browser interface.
