@@ -1,5 +1,10 @@
 <#import "layout.ftlh" as l>
   <@l.page title="Plant Details" active="home">
+    <#if successMessage??>
+        <div class="alert alert-success" style="padding: 10px; background-color: #d4edda; color: #155724; margin-bottom: 20px; border-radius: 4px;">
+            ${successMessage}
+        </div>
+    </#if>
     <p><a href="/">Back to Characters</a></p>
 
     <div class="details">

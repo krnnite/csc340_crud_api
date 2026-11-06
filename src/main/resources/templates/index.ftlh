@@ -1,5 +1,11 @@
 <#import "layout.ftlh" as l>
     <@l.page title="My Characters" active="home">
+        <#if successMessage??>
+            <div class="alert alert-success" style="padding: 10px; background-color: #d4edda; color: #155724; margin-bottom: 20px; border-radius: 4px;">
+                ${successMessage}
+            </div>
+        </#if>
+    
         <form method="get" action="/characters" class="search">
             <input type="text" name="name" value="${name!''}" placeholder="Search by name">
             <button type="submit">Search</button>

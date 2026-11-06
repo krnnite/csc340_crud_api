@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
 import jakarta.validation.Valid;
 
 
@@ -49,11 +51,12 @@ public class CharacterUIController {
     }
 
     @PostMapping("/characters")
-    public String createCharacter(@Valid @ModelAttribute FictionCharacter character, MultipartFile imageFile) {
+    public String createCharacter(@Valid @ModelAttribute FictionCharacter character, MultipartFile imageFile, RedirectAttributes redirectAttributes) {
     FictionCharacter newCharacter = service.create(character);
     if (imageFile != null && !imageFile.isEmpty()) {
         service.saveThumbnail(newCharacter, imageFile);
     }
+    redirectAttributes.addFlashAttribute("successMessage", newCharacter.getName() + " was added");
     return "redirect:/characters/" + newCharacter.getId();
     }
 
@@ -67,18 +70,22 @@ public class CharacterUIController {
     }
 
     @PostMapping("/characters/{id}")
-    public String updateCharacter(@PathVariable Long id, @Valid @ModelAttribute FictionCharacter character, MultipartFile imageFile) {
+    public String updateCharacter(@PathVariable Long id, @Valid @ModelAttribute FictionCharacter character, MultipartFile imageFile, RedirectAttributes redirectAttributes) {
     FictionCharacter updatedCharacter = service.update(id, character);
     if (imageFile != null && !imageFile.isEmpty()) {
         service.saveThumbnail(updatedCharacter, imageFile);
     }
+    redirectAttributes.addFlashAttribute("successMessage", updatedCharacter.getName() + " was updated");
     return "redirect:/characters/" + updatedCharacter.getId();
     }
 
     @PostMapping("/characters/{id}/delete")
-    public String deleteCharacter(@PathVariable Long id) {
-    service.delete(id);
-    return "redirect:/";
+    public String deleteCharacter(@PathVariable Long id, RedirectAttributes redirectAttributes) {
+        FictionCharacter character = service.findById(id);
+        String name = (character != null && character.getName() != null) ? character.getName() : "Character";
+        service.delete(id);
+        redirectAttributes.addFlashAttribute("successMessage", name + " was removed");
+        return "redirect:/";
     }
 
     @GetMapping("/about")
