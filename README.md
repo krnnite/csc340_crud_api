@@ -13,6 +13,50 @@ A REST API for viewing information about fictional characters from games and pop
 
 View the project at [csc340-crud-api-n638.onrender.com/api/characters](https://csc340-crud-api-n638.onrender.com/api/characters), view start note at [csc340-crud-api-n638.onrender.com](https://csc340-crud-api-n638.onrender.com)
 
+## Architecture
+
+Browser -- CharacterUIController -- FreeMarker templates (HTML)
+|
+JSON client -- CharacterController
+|
+CharacterService
+|
+CharacterRepository (JPA)
+|
+FictionCharacter entity / Database
+
+### Project Structure
+
+src/main/java/character/cosmos/demo/CharacterCosmos/
+	CharacterController.java
+	CharacterUIController.java
+	CharacterService.java
+	CharacterRepository.java
+	FictionCharacter.java
+	FictionCharacterNotFoundException.java
+src/main/resources/
+	application.properties
+	templates/                 FreeMarker views for the MVC interface
+	static/css/stylesheet.css  Web interface styles
+	static/thumbnails/         Uploaded pictures and placeholder image
+
+## MVC Web Interface
+
+Start the application and open `http://localhost:8080/` to use the browser interface.
+
+| Method | Path                    | Description |
+| ------ | ----------------------- | ----------- |
+| GET    | `/` or `/characters`    | Character gallery; optionally filter with `name` query parameter |
+| GET    | `/characters/new`       | Show the add-character form |
+| POST   | `/characters`           | Create a character and optionally upload its picture |
+| GET    | `/characters/{id}`      | Show character details |
+| GET    | `/characters/{id}/edit` | Show the edit form |
+| POST   | `/characters/{id}`      | Update character details and optionally replace its picture |
+| POST   | `/characters/{id}/delete`| Delete a character |
+| GET    | `/about`                | Explain the application and its request flow |
+
+The gallery supports the optional `name` filter. Character pictures are served from `/thumbnails/`; when a character has no picture, the interface displays the placeholder image.
+
 ## Data Model
 
 **Characters** (table `characters`)
